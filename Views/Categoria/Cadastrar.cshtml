@@ -1,0 +1,8 @@
+@model Categoria
+
+<div class="container">
+        <form asp-controller="Categoria" asp-action="Cadastrar">
+            <label asp-for="nome">Nome da Categoria:</label><input asp-for="nome">
+            <button type="submit" class="btn btn-primary">Salvar</button>
+        </form>
+</div>

@@ -1,0 +1,20 @@
+@model Produto
+
+<div class="container">
+    <form asp-controller="Produto" asp-action="Cadastrar">
+        <label asp-for="nome">Nome</label><input type="text" asp-for="nome">
+        
+        <label asp-for="CategoriaId">Categoria
+            <select asp-for="CategoriaId">
+                @foreach (var item in ViewBag.Categorias)
+                {
+                    <option value="@item.id">@item.nome</option>
+                }
+            </select>
+        </label>
+
+        <label asp-for="estoque">Estoque</label><input type="number" asp-for="estoque">
+        <label asp-for="preco">Preço</label><input type="number" asp-for="preco">
+        <button type="submit" class="btn btn-primary">Salvar</button>
+    </form>
+</div>

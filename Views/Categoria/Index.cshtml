@@ -1,0 +1,27 @@
+@model System.Collections.Generic.List<ControleEstoque.Models.Categoria>
+
+<div class="container">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nome</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.id</td>
+                    <td>@item.nome</td>
+                    <td><a class="btn btn-sm btn-primary" asp-controller="Categoria" asp-action="Cadastrar" asp-route-id="@item.id">Editar </a> 
+                    <a class="btn btn-sm btn-danger" asp-controller="Categoria" asp-action="Excluir" asp-route-id="@item.id">Excluir</a></td>
+                    
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <a class="btn btn-primary" asp-controller="Categoria" asp-action="Cadastrar">Cadastrar</a>
+</div>

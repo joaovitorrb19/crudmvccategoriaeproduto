@@ -1,0 +1,36 @@
+@model System.Collections.Generic.List<ControleEstoque.Models.Produto>
+
+<div class="container"> 
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nome</th>
+                <th>Categoria</th>
+                <th>Estoque</th>
+                <th>Preço</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.id</td>
+                    <td>@item.nome</td>
+                        @foreach (var items in ViewBag.Categorias)
+                        {
+                            if(items.id == item.CategoriaId){
+                                <td>@items.nome</td>
+                            }
+                        }  
+                    <td>@item.estoque</td>
+                    <td>@item.preco</td>
+                    <td><a class="btn btn-primary btn-sm" asp-controller="Produto" asp-action="Cadastrar" asp-route-id="@item.id">Editar</a></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <a class="btn btn-primary" asp-controller="Produto" asp-action="Cadastrar">Cadastrar</a>
+</div>
